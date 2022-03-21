@@ -26,7 +26,12 @@ const sendForm = (body, form) => {
 }
 
 forms.forEach((form) => {
-  console.log(form)
+  if (form.closest('.modal')) {
+    form.addEventListener('submit', (event) => {
+      const modal = document.querySelector('.modal')
+      modal.classList.add('hidden')
+    })
+  }
   form.addEventListener('submit', (event) => {
     event.preventDefault()
     const formData = new FormData(form)
