@@ -1,25 +1,18 @@
 const more = document.querySelectorAll('.more')
 const modal = document.querySelector('.modal')
-
 const closeBtn = document.querySelector('.modal__close')
 const overlay = modal.querySelector('.overlay')
 
-more.forEach((link) => {
-  link.addEventListener('click', () => {
-    modal.classList.remove('hidden')
+const array = [...more, closeBtn, overlay]
+
+array.forEach((element) => {
+  element.addEventListener('click', () => {
+    modal.classList.toggle('hidden')
   })
-})
-
-closeBtn.addEventListener('click', () => {
-  modal.classList.add('hidden')
-})
-
-overlay.addEventListener('click', () => {
-  modal.classList.add('hidden')
 })
 
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    modal.classList.add('hidden')
+    modal.classList.toggle('hidden')
   }
 })
